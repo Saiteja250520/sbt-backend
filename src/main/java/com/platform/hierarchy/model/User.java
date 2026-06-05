@@ -26,8 +26,8 @@ public class User {
     @Column(name = "phone_number", length = 20)
     private String phoneNumber;
 
-    @Column(length = 100)
-    private String region;
+    @Column(length = 255)
+    private String address;
 
     @Column(columnDefinition = "TEXT")
     private String notes;
@@ -100,8 +100,8 @@ public class User {
     public String getPhoneNumber() { return phoneNumber; }
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
-    public String getRegion() { return region; }
-    public void setRegion(String region) { this.region = region; }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 
     public String getNotes() { return notes; }
     public void setNotes(String notes) { this.notes = notes; }

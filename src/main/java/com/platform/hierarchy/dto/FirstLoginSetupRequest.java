@@ -5,7 +5,7 @@ public class FirstLoginSetupRequest {
     private String loginId;  // Optional new login ID (mostly System Owner)
     private String fullName;
     private String phoneNumber;
-    private String region;
+    private String address;
 
     // Platform settings configuration (only for System Owner role)
     private Double platformBalance;
@@ -27,8 +27,8 @@ public class FirstLoginSetupRequest {
     public String getPhoneNumber() { return phoneNumber; }
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
-    public String getRegion() { return region; }
-    public void setRegion(String region) { this.region = region; }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 
     public Double getPlatformBalance() { return platformBalance; }
     public void setPlatformBalance(Double platformBalance) { this.platformBalance = platformBalance; }

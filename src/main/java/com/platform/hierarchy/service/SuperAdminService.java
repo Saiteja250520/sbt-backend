@@ -83,7 +83,7 @@ public class SuperAdminService {
         manager.setEmail(request.getEmail());
         manager.setFullName(request.getFullName());
         manager.setPhoneNumber(request.getPhoneNumber());
-        manager.setRegion(request.getRegion());
+        manager.setAddress(request.getAddress());
         manager.setNotes(request.getNotes());
         manager.setRole("MANAGER");
         manager.setStatus("ACTIVE"); // Active by default on creation

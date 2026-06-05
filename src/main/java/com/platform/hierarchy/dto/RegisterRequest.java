@@ -4,17 +4,17 @@ public class RegisterRequest {
     private String fullName;
     private String email;
     private String phoneNumber;
-    private String region;
+    private String address;
     private String notes;
     private Long parentId; // Selected Manager ID
 
     public RegisterRequest() {}
 
-    public RegisterRequest(String fullName, String email, String phoneNumber, String region, String notes, Long parentId) {
+    public RegisterRequest(String fullName, String email, String phoneNumber, String address, String notes, Long parentId) {
         this.fullName = fullName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.region = region;
+        this.address = address;
         this.notes = notes;
         this.parentId = parentId;
     }
@@ -28,8 +28,8 @@ public class RegisterRequest {
     public String getPhoneNumber() { return phoneNumber; }
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
-    public String getRegion() { return region; }
-    public void setRegion(String region) { this.region = region; }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 
     public String getNotes() { return notes; }
     public void setNotes(String notes) { this.notes = notes; }

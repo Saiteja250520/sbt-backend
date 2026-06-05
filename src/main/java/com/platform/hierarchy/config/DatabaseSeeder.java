@@ -66,7 +66,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         manager1.setEmail("manager1@sbtcrypto.com");
         manager1.setFullName("Manager One");
         manager1.setPhoneNumber("+919876543210");
-        manager1.setRegion("East Region");
+        manager1.setAddress("East Region Office, Kolkata");
         manager1.setRole("MANAGER");
         manager1.setStatus("ACTIVE");
         manager1.setParent(owner);
@@ -80,7 +80,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         customer1.setEmail("customer1@gmail.com");
         customer1.setFullName("Customer One");
         customer1.setPhoneNumber("+919876543211");
-        customer1.setRegion("East Region");
+        customer1.setAddress("Street No 5, Salt Lake, Kolkata");
         customer1.setRole("CUSTOMER");
         customer1.setStatus("ACTIVE");
         customer1.setParent(manager1);
@@ -95,7 +95,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         pendingCustomer.setEmail("pendingcustomer@gmail.com");
         pendingCustomer.setFullName("Pending Client");
         pendingCustomer.setPhoneNumber("+919876543212");
-        pendingCustomer.setRegion("East Region");
+        pendingCustomer.setAddress("Sector 3, Salt Lake, Kolkata");
         pendingCustomer.setNotes("Requesting priority manager group assignment.");
         pendingCustomer.setRole("CUSTOMER");
         pendingCustomer.setStatus("PENDING_APPROVAL");

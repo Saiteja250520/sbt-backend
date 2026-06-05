@@ -20,7 +20,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
@@ -83,7 +82,7 @@ public class AuthService {
         newCustomer.setEmail(request.getEmail());
         newCustomer.setFullName(request.getFullName());
         newCustomer.setPhoneNumber(request.getPhoneNumber());
-        newCustomer.setRegion(request.getRegion());
+        newCustomer.setAddress(request.getAddress());
         newCustomer.setNotes(request.getNotes());
         newCustomer.setRole("CUSTOMER");
         newCustomer.setStatus("PENDING_APPROVAL");
@@ -203,8 +202,8 @@ public class AuthService {
         if (request.getPhoneNumber() != null) {
             user.setPhoneNumber(request.getPhoneNumber());
         }
-        if (request.getRegion() != null) {
-            user.setRegion(request.getRegion());
+        if (request.getAddress() != null) {
+            user.setAddress(request.getAddress());
         }
 
         // 4. Configure platform settings (if role is SYSTEM_OWNER)
