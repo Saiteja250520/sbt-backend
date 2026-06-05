@@ -33,17 +33,21 @@ public class AdminController {
     }
 
     @PutMapping("/customers/{id}/status")
-    public ResponseEntity<Map<String, String>> updateCustomerStatus(
+    public ResponseEntity<?> updateCustomerStatus(
             @PathVariable Long id,
             @RequestBody StatusUpdateRequest request,
             Principal principal) {
         try {
-            adminService.updateUserStatus(principal.getName(), id, request.getStatus());
-            Map<String, String> response = new HashMap<>();
+            java.util.Map<String, String> creds = adminService.updateUserStatus(principal.getName(), id, request.getStatus());
+            java.util.Map<String, Object> response = new HashMap<>();
             response.put("message", "Customer account status updated successfully.");
+            if (creds != null) {
+                response.put("loginId", creds.get("loginId"));
+                response.put("password", creds.get("password"));
+            }
             return ResponseEntity.ok(response);
         } catch (Exception e) {
-            Map<String, String> response = new HashMap<>();
+            java.util.Map<String, String> response = new HashMap<>();
             response.put("error", e.getMessage());
             return ResponseEntity.badRequest().body(response);
         }

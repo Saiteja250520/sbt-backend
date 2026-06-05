@@ -65,7 +65,7 @@ public class AdminService {
         return userRepository.findByParentAndRole(manager, "CUSTOMER");
     }
 
-    public void updateUserStatus(String managerLoginId, Long userId, String action) {
+    public Map<String, String> updateUserStatus(String managerLoginId, Long userId, String action) {
         User manager = getManager(managerLoginId);
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("Customer account not found with ID: " + userId));
@@ -75,6 +75,8 @@ public class AdminService {
             (user.getParent() == null || !user.getParent().getId().equals(manager.getId()))) {
             throw new SecurityException("Access Denied. You can only manage your assigned customers.");
         }
+
+        Map<String, String> creds = null;
 
         if ("APPROVE".equalsIgnoreCase(action)) {
             // Step 5: System generates Login ID and Temporary Password
@@ -101,6 +103,10 @@ public class AdminService {
             System.out.println("Login ID: " + generatedLoginId);
             System.out.println("Password: " + tempPassword);
             System.out.println("=========================================");
+
+            creds = new HashMap<>();
+            creds.put("loginId", generatedLoginId);
+            creds.put("password", tempPassword);
         } else if ("REJECT".equalsIgnoreCase(action) || "REJECTED".equalsIgnoreCase(action)) {
             user.setStatus("REJECTED");
             userRepository.save(user);
@@ -114,6 +120,8 @@ public class AdminService {
             userRepository.save(user);
             auditLogService.log("Customer Status Updated (" + action + ")", manager.getLoginId(), manager.getRole(), user.getId().toString());
         }
+
+        return creds;
     }
 
     public Transfer createTransfer(String managerLoginId, Long userId, Double amount, String description) {
